@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class SalesManager {
     protected int[] sales;
 
@@ -12,5 +14,15 @@ public class SalesManager {
             }
         }
         return max;
+    }
+    public int average() {
+        int[] part = new int[sales.length - 2];
+        Arrays.sort(sales);
+        System.arraycopy(sales, 1, part, 0, part.length);
+        int sum = 0;
+        for (int cell : part) {
+            sum += cell;
+        }
+        return  sum / part.length;
     }
 }
